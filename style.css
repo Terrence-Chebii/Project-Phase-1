@@ -118,3 +118,9 @@ h2{
     display: flex;
     overflow-x: scroll;
 }
+
+.new section img{
+    border-radius: 30px;
+    width: 250px;
+    height: 320px;
+}
