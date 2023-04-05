@@ -1,0 +1,120 @@
+*{
+    margin-left: 0;
+}
+
+body{
+    text-align: center;
+    overflow-x: hidden;  
+    background-image: url('dragon-7063555_1280.png');
+    background-size:cover;
+}
+
+
+nav{
+    position: absolute;
+    float: left;
+    display: flex;
+    top: 0%;
+    left: 71%;
+    justify-content: space-around;
+    width: 30%;
+    background-color: rgba(161, 160, 160, 0.329);
+}
+
+h1{
+    font-size: 150px;
+    color: aliceblue;
+}
+
+#add{
+    text-align: center;
+    width: 70%;
+    padding: 2%;
+    border-radius: 30px;
+    border: 2px solid orangered;
+    font-size: 50px;
+    color: rgb(161, 160, 160);
+}
+
+#btn{
+    position: absolute;
+    left: 79%;
+    top: 57%;
+    font-size: 69px;
+    background: transparent;
+    border: 0;
+}
+
+#anime{
+    text-align: center;
+    width: 70%;
+    padding: 2%;
+    border-radius: 30px;
+    border: 2px solid orangered;
+    font-size: 50px;
+    color: rgb(161, 160, 160);
+}
+
+#button {
+    position: absolute;
+    left: 79%;
+    top: 80%;
+    font-size: 40px;
+    background: transparent;
+    border: 0;
+  }
+  
+  button:hover{
+    transition: .4s;
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+
+.div{
+    display: flex;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+section{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 20%;
+}
+
+img{
+    border-radius: 30px;
+    height: 280px;
+}
+
+h3{
+    color: rgb(161, 160, 160);
+}
+
+div button{
+    background: transparent;
+    border: 0;
+    font-size: 100px;
+    color: white;
+}
+
+h2{
+    text-align: left;
+    color: blanchedalmond;
+    font-size: 40px;
+    font-style: italic;
+}
+
+.global{
+    display: flex;
+    overflow-x: scroll;
+}
+
+.new{
+    display: flex;
+    overflow-x: scroll;
+}

@@ -4,13 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Anime-Hub</title>
 </head>
 <body>
-    <form >
-        <input type="text" class="name" placeholder="ENTER ANIME NAME">
-        <button onclick="displayResults()">🔎</button>
+    <nav>
+        <h3 id="your">Your Anime's</h3>
+        <h3 id="liked">Liked Anime's</h3>
+    </nav>
+    <header>
+        <h1>ANIME-HUB</h1>
+    </header>
+
+    <form id="addForm">
+        <input id="add" type="text" id="newAnime" placeholder="ADD ANIME">
+        <button id="btn">+</button>
     </form>
-    <script src="main.js"></script>
+
+     <br><br>
+
+    <form id="searchForm">
+        <input required type="text" id="anime" placeholder="ENTER ANIME NAME">
+        <button id="button">🔎</button>
+    </form>
+    <div class="div"></div>
+
+    <section id="global">
+        <h2>BEST ANIME'S GLOBALLY</h2>
+        <div class="global"></div>
+    </section>
+
+    <section id="new">
+        <h2>NEW RELEASES</h2>
+        <div class="new"></div>
+    </section>
+
+    <section id="local">
+        <h2>TRENDING ANIME'S LOCALLY</h2>
+        <div></div>
+    </section>
+
 </body>
+<script src="main.js"></script>
 </html>
