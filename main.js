@@ -49,3 +49,22 @@ function displayGlobal(data){
 }
 
 
+fetch(' https://api.jikan.moe/v4/anime?q=2022&sfw')
+.then(res=>res.json())
+.then(data=>displayNewReleases(data))
+
+function displayNewReleases(data){ 
+    let newRealeases = document.querySelector('.new')
+    data.data.forEach(anime => {
+        let newContent = document.createElement('section')
+        newContent.innerHTML = `
+        <div id='display'>
+           <button>✬</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        console.log(newContent)
+        newRealeases.appendChild(newContent)
+    });
+}
