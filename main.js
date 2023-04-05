@@ -27,3 +27,25 @@ function displayResults(data){
     });
 }
 
+
+fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
+.then(res=>res.json())
+.then(data=>displayGlobal(data))
+
+function displayGlobal(data){ 
+    let global = document.querySelector('.global')
+    data.data.forEach(anime => {
+        let globalContent = document.createElement('section')
+        globalContent.innerHTML = `
+        <div id='display'>
+           <button>✬</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        console.log(globalContent)
+        global.appendChild(globalContent)
+    });
+}
+
+
