@@ -236,3 +236,17 @@ h4:hover{
     transform: scale(1.3);
     cursor: pointer;
 }
+
+footer{
+    background-color: #a1a0a054;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#footerImg{
+    height: 30%;
+}
