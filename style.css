@@ -5,8 +5,8 @@
 body{
     text-align: center;
     overflow-x: hidden;  
-    background-image: url('dragon-7063555_1280.png');
-    background-size: contain;
+    background-color: black;
+    background-size: auto;
 }
 
 
@@ -33,6 +33,10 @@ h1{
     color: aliceblue;
 }
 
+span{
+    color: orangered;
+}
+
 #add{
     text-align: center;
     width: 70%;
@@ -45,8 +49,8 @@ h1{
 
 #btn{
     position: absolute;
-    left: 79%;
-    top: 58%;
+    left: 81%;
+    top: 59%;
     font-size: 69px;
     background: transparent;
     border: 0;
@@ -68,8 +72,8 @@ h1{
 
 #button {
     position: absolute;
-    left: 79%;
-    top: 81%;
+    left: 81%;
+    top: 83%;
     font-size: 40px;
     background: transparent;
     border: 0;
@@ -163,4 +167,9 @@ h2{
 #deleteIt:hover{
     background-color: red;
     color: white;
+}
+
+.flexe{
+    display: flex;
+    overflow-x: scroll;
 }

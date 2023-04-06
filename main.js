@@ -11,7 +11,7 @@ button.addEventListener('click', (e) => {
 })
 
 function displayResults(data){ 
-    let main = document.querySelector('body')
+    let main = document.querySelector('main')
     main.innerHTML = '' // clear previous results
     data.data.forEach(anime => {
         let content = document.createElement('section')
