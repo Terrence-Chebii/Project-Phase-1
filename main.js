@@ -1,5 +1,5 @@
-let btn = document.querySelector('#button')
-btn.addEventListener('click', (e) => {
+let button = document.querySelector('#button')
+button.addEventListener('click', (e) => {
     e.preventDefault()
     let animeName = anime.value
     let form = document.querySelector('#searchForm')
@@ -11,19 +11,37 @@ btn.addEventListener('click', (e) => {
 })
 
 function displayResults(data){ 
-    let main = document.querySelector('div')
+    let main = document.querySelector('body')
     main.innerHTML = '' // clear previous results
     data.data.forEach(anime => {
         let content = document.createElement('section')
         content.innerHTML = `
         <div id='display'>
-           <button>✬</button>
+           <button id='likeButton'>✬</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
         `
-        console.log(content)
         main.appendChild(content)
+
+        let likeButton = content.querySelector('#likeButton')
+        likeButton.addEventListener('click' , () => {
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
     });
 }
 
@@ -38,13 +56,31 @@ function displayGlobal(data){
         let globalContent = document.createElement('section')
         globalContent.innerHTML = `
         <div id='display'>
-           <button>✬</button>
+           <button id='likeButton'>✬</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
         `
-        console.log(globalContent)
         global.appendChild(globalContent)
+
+        let likeButton = globalContent.querySelector('#likeButton')
+        likeButton.addEventListener('click' , () => {
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
     });
 }
 
@@ -59,12 +95,170 @@ function displayNewReleases(data){
         let newContent = document.createElement('section')
         newContent.innerHTML = `
         <div id='display'>
-           <button>✬</button>
+           <button id='likeButton'>✬</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
         `
-        console.log(newContent)
         newRealeases.appendChild(newContent)
+
+        let likeButton = newContent.querySelector('#likeButton')
+        likeButton.addEventListener('click' , () => {
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
     });
 }
+
+
+fetch('https://api.jikan.moe/v4/anime?q=l&sfw')
+.then(res=>res.json())
+.then(data=>displayLocal(data))
+
+function displayLocal(data){ 
+    let local = document.querySelector('.local')
+    data.data.forEach(anime => {
+        let localContent = document.createElement('section')
+        localContent.innerHTML = `
+        <div id='display'>
+           <button id='likeButton'>✬</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        local.appendChild(localContent)
+
+        let likeButton = localContent.querySelector('#likeButton')
+        likeButton.addEventListener('click' , () => {
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
+    });
+}
+
+let btn = document.querySelector('#btn')
+btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let newAnimeName = add.value
+    let addForm = document.querySelector('form')
+    addForm.reset()
+
+    fetch(`https://api.jikan.moe/v4/anime?q=${newAnimeName}`)
+    .then(res=>res.json())
+    .then(data=>addNewAnime(data))
+})
+
+function addNewAnime(data) { 
+    let anime = data.data[0]; // Selecting the first object in the array
+    let title = anime.title
+    let img = anime.images.jpg.image_url
+    let id = anime.mal_id
+    let newAnime = {
+        title : title,
+        img : img,
+        id : id
+    }
+
+    fetch("http://localhost:3005/news" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(newAnime)
+            })
+  }
+
+let yourAnime = document.querySelector('#your')
+yourAnime.addEventListener('click' , displayYouranime)
+
+function displayYouranime(){
+    fetch('http://localhost:3005/news')
+.then((res) => res.json())
+.then(data => {
+    let body = document.querySelector('body')
+    body.innerHTML = ''
+    data.forEach(news => {
+        let content = document.createElement('section')
+        content.innerHTML = `
+        <div id='youranimes'>
+           <img src='${news.img}'>
+           <h3>${news.title}<h3><br><br>
+           <button id='deleteIt'>DELETE</button>
+           </div>
+        `
+        body.appendChild(content)
+
+let deleteButton = content.querySelector('#deleteIt')
+deleteButton.addEventListener('click' , deleteIt)
+function deleteIt(){
+    fetch(`http://localhost:3005/news/${news.id}` , {
+            method : 'DELETE',
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        })
+  }
+    })
+})
+}
+
+ let yourLikes = document.querySelector('#liked')
+yourLikes.addEventListener('click' , displayLikes)
+
+function displayLikes(){
+    fetch('http://localhost:3005/like')
+.then((res) => res.json())
+.then(data => {
+    let body = document.querySelector('body')
+    body.innerHTML = ''
+    data.forEach(like => {
+        let content = document.createElement('section')
+        content.innerHTML = `
+        <div id='youranimes'>
+           <img src='${like.img}'>
+           <h3>${like.title}<h3><br><br>
+           <button id='deleteIt'>UNLIKE</button>
+           </div>
+        `
+        body.appendChild(content)
+
+let deleteButton = content.querySelector('#deleteIt')
+deleteButton.addEventListener('click' , deleteIt)
+function deleteIt(){
+    fetch(`http://localhost:3005/like/${like.id}` , {
+            method : 'DELETE',
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        })
+  }
+    })
+})
+}
+
