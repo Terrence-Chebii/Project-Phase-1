@@ -1,11 +1,22 @@
 {
-  "news": [],
-  "like": [
+  "news": [
     {
-      "id": 625,
-      "title": "Moekan The Animation",
-      "img": "https://cdn.myanimelist.net/images/anime/1008/131352.jpg"
+      "title": "God Eater",
+      "img": "https://cdn.myanimelist.net/images/anime/7/73852.jpg",
+      "id": 27631
     },
+    {
+      "title": "Bleach",
+      "img": "https://cdn.myanimelist.net/images/anime/3/40451.jpg",
+      "id": 269
+    },
+    {
+      "title": "Naruto",
+      "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+      "id": 20
+    }
+  ],
+  "like": [
     {
       "id": 7939,
       "title": "Animation!",
@@ -20,6 +31,11 @@
       "id": 31,
       "title": "Neon Genesis Evangelion: Death & Rebirth",
       "img": "https://cdn.myanimelist.net/images/anime/1993/113122.jpg"
+    },
+    {
+      "id": 25717,
+      "title": "AIUEO Anime Sekai no Douwa: Aesop Monogatari Anime Series",
+      "img": "https://cdn.myanimelist.net/images/anime/3/65297.jpg"
     }
   ]
 }

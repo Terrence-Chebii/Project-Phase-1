@@ -1,7 +1,7 @@
 let home = document.querySelector('#home')
 home.addEventListener('click' , displayHome)
 
-function displayHome(){
+async function displayHome(){
     let main = document.querySelector('main')
     main.innerHTML = `
     <div class="div"></div>
@@ -23,7 +23,7 @@ function displayHome(){
     </div>
     `
 
-fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
+await fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
 .then(res=>res.json())
 .then(data=>displayGlobal(data))
 
@@ -66,7 +66,7 @@ fetch(' https://api.jikan.moe/v4/anime?q=2022&sfw')
 .then(res=>res.json())
 .then(data=>displayNewReleases(data))
 
-function displayNewReleases(data){ 
+async function displayNewReleases(data){ 
     let newRealeases = document.querySelector('.new')
     data.data.forEach(anime => {
         let newContent = document.createElement('section')
@@ -101,11 +101,11 @@ function displayNewReleases(data){
 }
 
 
-fetch('https://api.jikan.moe/v4/anime?q=l&sfw')
+await fetch('https://api.jikan.moe/v4/anime?q=l&sfw')
 .then(res=>res.json())
 .then(data=>displayLocal(data))
 
-function displayLocal(data){ 
+async function displayLocal(data){ 
     let local = document.querySelector('.local')
     data.data.forEach(anime => {
         let localContent = document.createElement('section')
@@ -138,19 +138,24 @@ function displayLocal(data){
         })
     });
 }
+}
 
 let btn = document.querySelector('#btn')
+
 btn.addEventListener('click', (event) => {
     event.preventDefault()
+
     let newAnimeName = add.value
     let addForm = document.querySelector('form')
-    //addForm.reset()
-    alert('The added anime will be shown in your Anime\'s')
+    addForm.reset()
+
+    alert('The added anime will be shown in \"your Anime\'s\"')
 
     fetch(`https://api.jikan.moe/v4/anime?q=${newAnimeName}`)
-    .then(res=>res.json())
-    .then(data=>addNewAnime(data))
+        .then(res => res.json())
+        .then(data => addNewAnime(data))
 })
+
 
 function addNewAnime(data) { 
     let anime = data.data[0]; // Selecting the first object in the array
@@ -171,13 +176,12 @@ function addNewAnime(data) {
                 body : JSON.stringify(newAnime)
             })
   }
-}
 
 let yourAnime = document.querySelector('#your')
 yourAnime.addEventListener('click' , displayYouranime)
 
-function displayYouranime(){
-    fetch('http://localhost:3005/news')
+async function displayYouranime(){
+   await fetch('http://localhost:3005/news')
 .then((res) => res.json())
 .then(data => {
     let body = document.querySelector('main')
@@ -196,6 +200,7 @@ function displayYouranime(){
 let deleteButton = content.querySelector('#deleteIt')
 deleteButton.addEventListener('click' , deleteIt)
 function deleteIt(){
+    confirm('Are you sure you want to delete it? The content will be lost!')
     fetch(`http://localhost:3005/news/${news.id}` , {
             method : 'DELETE',
             headers : {
@@ -210,8 +215,8 @@ function deleteIt(){
  let yourLikes = document.querySelector('#liked')
 yourLikes.addEventListener('click' , displayLikes)
 
-function displayLikes(){
-    fetch('http://localhost:3005/like')
+async function displayLikes(){
+   await fetch('http://localhost:3005/like')
 .then((res) => res.json())
 .then(data => {
     let body = document.querySelector('main')
@@ -230,6 +235,7 @@ function displayLikes(){
 let deleteButton = content.querySelector('#deleteIt')
 deleteButton.addEventListener('click' , deleteIt)
 function deleteIt(){
+    confirm('Are You sure you want to unlike it?')
     fetch(`http://localhost:3005/like/${like.id}` , {
             method : 'DELETE',
             headers : {
@@ -249,7 +255,7 @@ button.addEventListener('click', (e) => {
     let form = document.querySelector('#searchForm')
     form.reset()
 
-    fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
+     fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
     .then(res=>res.json())
     .then(data=>displayResults(data))
 })
