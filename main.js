@@ -331,6 +331,24 @@ async function showAction(h4){
            </div>
         `
         action.appendChild(newContent)
+        newContent.querySelector('#likeButton').addEventListener('click' , (e) =>{
+            e.preventDefault()
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
 })
 })
 }
@@ -351,6 +369,24 @@ async function showRomance(){
            </div>
         `
         action.appendChild(newContent)
+        newContent.querySelector('#likeButton').addEventListener('click' , (e) =>{
+            e.preventDefault()
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
 })
 })
 }
@@ -371,6 +407,24 @@ async function showComedy(){
            </div>
         `
         action.appendChild(newContent)
+        newContent.querySelector('#likeButton').addEventListener('click' , (e) =>{
+            e.preventDefault()
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
 })
 })
 }
@@ -391,6 +445,24 @@ async function showHorror(){
            </div>
         `
         action.appendChild(newContent)
+        newContent.querySelector('#likeButton').addEventListener('click' , (e) =>{
+            e.preventDefault()
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
 })
 })
 }
