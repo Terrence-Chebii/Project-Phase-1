@@ -140,11 +140,12 @@ function displayLocal(data){
 }
 
 let btn = document.querySelector('#btn')
-btn.addEventListener('click', (e) => {
-    e.preventDefault()
+btn.addEventListener('click', (event) => {
+    event.preventDefault()
     let newAnimeName = add.value
     let addForm = document.querySelector('form')
-    addForm.reset()
+    //addForm.reset()
+    alert('The added anime will be shown in your Anime\'s')
 
     fetch(`https://api.jikan.moe/v4/anime?q=${newAnimeName}`)
     .then(res=>res.json())

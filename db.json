@@ -1,16 +1,5 @@
 {
-  "news": [
-    {
-      "title": "Naruto",
-      "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
-      "id": 20
-    },
-    {
-      "title": "Hanma Baki: Son of Ogre",
-      "img": "https://cdn.myanimelist.net/images/anime/1628/119353.jpg",
-      "id": 42940
-    }
-  ],
+  "news": [],
   "like": [
     {
       "id": 625,
@@ -23,14 +12,14 @@
       "img": "https://cdn.myanimelist.net/images/anime/8/19405.jpg"
     },
     {
-      "id": 20,
-      "title": "Naruto",
-      "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
-    },
-    {
       "id": 13667,
       "title": "Naruto: Shippuuden Movie 6 - Road to Ninja",
       "img": "https://cdn.myanimelist.net/images/anime/1620/94336.jpg"
+    },
+    {
+      "id": 31,
+      "title": "Neon Genesis Evangelion: Death & Rebirth",
+      "img": "https://cdn.myanimelist.net/images/anime/1993/113122.jpg"
     }
   ]
 }
