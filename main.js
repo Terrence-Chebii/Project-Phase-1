@@ -309,4 +309,88 @@ function showFilters(){
     <h4 id='horror'>Horror<h4>
     `
     displayFilters.appendChild(li)
+    document.querySelector('#action').addEventListener('click' , showAction)
+    document.querySelector('#romance').addEventListener('click' , showRomance)
+    li.querySelector('#comedy').addEventListener('click' , showComedy)
+    li.querySelector('#horror').addEventListener('click' , showHorror)
+}
+
+async function showAction(h4){
+    await fetch('https://api.jikan.moe/v4/anime?q=fight&sfw')
+.then(res=>res.json())
+.then(data=>{
+    let action = document.querySelector('main')
+    action.innerHTML = ``
+    data.data.forEach(anime => {
+        let newContent = document.createElement('section')
+        newContent.innerHTML = `
+        <div id='showaction'>
+           <button id='likeButton'>♥</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        action.appendChild(newContent)
+})
+})
+}
+
+async function showRomance(){
+    await fetch('https://api.jikan.moe/v4/anime?q=love&sfw')
+.then(res=>res.json())
+.then(data=>{
+    let action = document.querySelector('main')
+    action.innerHTML = ``
+    data.data.forEach(anime => {
+        let newContent = document.createElement('section')
+        newContent.innerHTML = `
+        <div id='showaction'>
+           <button id='likeButton'>♥</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        action.appendChild(newContent)
+})
+})
+}
+
+async function showComedy(){
+    await fetch('https://api.jikan.moe/v4/anime?q=comedy&sfw')
+.then(res=>res.json())
+.then(data=>{
+    let action = document.querySelector('main')
+    action.innerHTML = ``
+    data.data.forEach(anime => {
+        let newContent = document.createElement('section')
+        newContent.innerHTML = `
+        <div id='showaction'>
+           <button id='likeButton'>♥</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        action.appendChild(newContent)
+})
+})
+}
+
+async function showHorror(){
+    await fetch('https://api.jikan.moe/v4/anime?q=horror&sfw')
+.then(res=>res.json())
+.then(data=>{
+    let action = document.querySelector('main')
+    action.innerHTML = ``
+    data.data.forEach(anime => {
+        let newContent = document.createElement('section')
+        newContent.innerHTML = `
+        <div id='showaction'>
+           <button id='likeButton'>♥</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        action.appendChild(newContent)
+})
+})
 }
