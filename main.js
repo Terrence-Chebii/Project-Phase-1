@@ -4,23 +4,23 @@ home.addEventListener('click' , displayHome)
 function displayHome(){
     let main = document.querySelector('main')
     main.innerHTML = `
-    <h1><img src='images/2.jpg'></h1>
     <div class="div"></div>
-
-    <section id="global">
+    <div id='dis'>
+    <div id="global">
         <h2>BEST ANIME'S GLOBALLY</h2>
         <div class="global"></div>
-    </section>
+    </div>
 
-    <section id="new">
+    <div id="new">
         <h2>NEW RELEASES</h2>
         <div class="new"></div>
-    </section>
+    </div>
 
-    <section id="local">
+    <div id="local">
         <h2>TRENDING ANIME'S LOCALLY</h2>
         <div class="local"></div>
-    </section>
+    </div>
+    </div>
     `
 
 fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
@@ -180,7 +180,7 @@ function displayYouranime(){
 .then((res) => res.json())
 .then(data => {
     let body = document.querySelector('main')
-    body.innerHTML = ` <h1><img src='images/2.jpg'></h1>`
+    body.innerHTML = ` `
     data.forEach(news => {
         let content = document.createElement('section')
         content.innerHTML = `
@@ -214,7 +214,7 @@ function displayLikes(){
 .then((res) => res.json())
 .then(data => {
     let body = document.querySelector('main')
-    body.innerHTML = `<h1><img src='images/2.jpg'></h1>`
+    body.innerHTML = ``
     data.forEach(like => {
         let content = document.createElement('section')
         content.innerHTML = `
@@ -255,7 +255,7 @@ button.addEventListener('click', (e) => {
 
 function displayResults(data){ 
     let main = document.querySelector('main')
-    main.innerHTML = ` <h1><img src='images/2.jpg'></h1>` // clear previous results
+    main.innerHTML = ` ` // clear previous results
     data.data.forEach(anime => {
         let content = document.createElement('section')
         content.innerHTML = `

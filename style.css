@@ -1,46 +1,46 @@
-*{
+* {
     margin-left: 0;
     margin-top: 0;
     margin-right: 0;
 }
 
-body{
+body {
     text-align: center;
-    overflow-x: hidden;  
-    background-color: #eef7ff;
+    overflow-x: hidden;
+    background-color:white;
     background-size: auto;
 }
 
-nav{
+nav {
     position: relative;
     display: flex;
     width: 100%;
-    background-color: rgba(161, 160, 160, 0.329);
+    background-color: #a1a0a054;
 }
 
-nav h3{
+nav h3 {
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 1%;
 }
 
-nav h3:hover{
+nav h3:hover {
     color: #ff4500;
     cursor: pointer;
     transition: .4s;
     transform: scale(1.2);
 }
 
-header h1{
+header h1 {
     font-size: 150px;
     color: aliceblue;
 }
 
-span{
+span {
     color: orangered;
 }
 
-#add{
+#add {
     text-align: center;
     width: 70%;
     padding: 3%;
@@ -52,9 +52,10 @@ span{
     position: relative;
     top: 20%;
     left: 335px;
+    background-color: rgba(161, 160, 160, 0.329);
 }
 
-#btn{
+#btn {
     position: relative;
     font-size: 150%;
     background: transparent;
@@ -63,11 +64,11 @@ span{
     top: 25%;
 }
 
-#btn:hover{
+#btn:hover {
     color: gold;
 }
 
-#anime{
+#anime {
     text-align: center;
     width: 80%;
     padding: 3%;
@@ -79,6 +80,7 @@ span{
     position: relative;
     right: -300%;
     top: 20%;
+    background-color: rgba(161, 160, 160, 0.329);
 }
 
 #button {
@@ -88,82 +90,110 @@ span{
     background: transparent;
     border: 0;
     top: -30%;
-  }
-  
-  button:hover{
+}
+
+button:hover {
     transition: .4s;
     transform: scale(1.3);
     cursor: pointer;
 
-  }
+}
 
-.div{
-    display:inline-table;
+.div {
+    display: inline-table;
     overflow-x: scroll;
 }
 
 ::-webkit-scrollbar {
     display: none;
-  }
-
-section{
-    padding: 2%;
 }
 
-img{
+section {
+    padding: 2%;
+    max-width: 200px;
+}
+
+img {
     border-radius: 30px;
     height: 280px;
+    border: 2px solid orangered;
+    max-width: 200px;
 }
 
-h3{
+h3 {
     color: black;
 }
 
-div button{
+div button {
     background: transparent;
     border: 0;
     font-size: 100px;
     color: white;
 }
 
-div button:hover{
+div button:hover {
     color: gold;
 }
 
-h2{
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#dis{
+    display: inline;
+    
+}
+
+main section div {
+    display: inline;
+}
+
+main h1 img {
+    border: 0;
+}
+
+#mainImg {
+    border: 0;
+    max-width: 100%;
+    position: absolute;
+    left: 40%;
+}
+
+h2 {
     text-align: left;
     color: black;
     font-size: 20px;
     font-style: italic;
 }
 
-.global{
+.global {
     display: flex;
     overflow-x: scroll;
 }
 
-.new{
+.new {
     display: flex;
     overflow-x: scroll;
 }
 
-.new section img{
+.new section img {
     border-radius: 30px;
     width: 250px;
     height: 320px;
 }
 
-.local{
+.local {
     display: flex;
     overflow-x: scroll;
 }
 
-#youranimes{
-    display:flex;
+#youranimes {
+    display: flex;
     flex-flow: wrap-reverse;
 }
 
-#deleteIt{
+#deleteIt {
     background-color: white;
     color: red;
     font-size: 30px;
@@ -172,22 +202,20 @@ h2{
     border: 3px solid black;
 }
 
-#deleteIt:hover{
+#deleteIt:hover {
     background-color: red;
     color: white;
 }
 
-.flexe{
+.flexe {
     display: flex;
     overflow-x: scroll;
 }
 
-mai{
-    display: flex;
-    scroll-behavior: smooth;
-    overflow-x: scroll;
+#likeButton{
+    color: #a1a0a054;
 }
 
-main section div{
-    display:inline;
+#likeButton:hover{
+    color: gold;
 }
