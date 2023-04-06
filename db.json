@@ -1,4 +1,26 @@
 {
-  "news": [],
-  "like": []
+  "news": [
+    {
+      "title": "Naruto",
+      "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
+      "id": 20
+    },
+    {
+      "title": "Hanma Baki: Son of Ogre",
+      "img": "https://cdn.myanimelist.net/images/anime/1628/119353.jpg",
+      "id": 42940
+    }
+  ],
+  "like": [
+    {
+      "id": 625,
+      "title": "Moekan The Animation",
+      "img": "https://cdn.myanimelist.net/images/anime/1008/131352.jpg"
+    },
+    {
+      "id": 7939,
+      "title": "Animation!",
+      "img": "https://cdn.myanimelist.net/images/anime/8/19405.jpg"
+    }
+  ]
 }

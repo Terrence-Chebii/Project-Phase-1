@@ -4,21 +4,7 @@ home.addEventListener('click' , displayHome)
 function displayHome(){
     let main = document.querySelector('main')
     main.innerHTML = `
-    <header>
-        <h1>ANIME-<span>HUB</span></h1>
-    </header>
-
-    <form id="addForm">
-        <input id="add" type="text" placeholder="ADD ANIME">
-        <button id="btn">+</button>
-    </form>
-
-     <br><br>
-
-    <form id="searchForm">
-        <input required type="text" id="anime" placeholder="ENTER ANIME NAME">
-        <button id="button">🔎</button>
-    </form>
+    <h1><img src='images/2.jpg'></h1>
     <div class="div"></div>
 
     <section id="global">
@@ -37,54 +23,6 @@ function displayHome(){
     </section>
     `
 
-let button = document.querySelector('#button')
-button.addEventListener('click', (e) => {
-    e.preventDefault()
-    let animeName = anime.value
-    let form = document.querySelector('#searchForm')
-    form.reset()
-
-    fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
-    .then(res=>res.json())
-    .then(data=>displayResults(data))
-})
-
-function displayResults(data){ 
-    let main = document.querySelector('main')
-    main.innerHTML = '' // clear previous results
-    data.data.forEach(anime => {
-        let content = document.createElement('section')
-        content.innerHTML = `
-        <div id='display'>
-           <button id='likeButton'>✬</button>
-           <img src='${anime.images.jpg.image_url}'>
-           <h3>${anime.title}<h3>
-           </div>
-        `
-        main.appendChild(content)
-
-        let likeButton = content.querySelector('#likeButton')
-        likeButton.addEventListener('click' , () => {
-            let id = anime.mal_id
-            let title = anime.title
-            let img = anime.images.jpg.image_url
-            let likedAnime = {
-                id : id,
-                title : title,
-                img : img
-            }
-            fetch("http://localhost:3005/like" , {
-                method : 'POST',
-                headers : {
-                    'Content-Type' : 'application/json'
-                },
-                body : JSON.stringify(likedAnime)
-            })
-        })
-    });
-}
-
-
 fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
 .then(res=>res.json())
 .then(data=>displayGlobal(data))
@@ -95,7 +33,7 @@ function displayGlobal(data){
         let globalContent = document.createElement('section')
         globalContent.innerHTML = `
         <div id='display'>
-           <button id='likeButton'>✬</button>
+           <button id='likeButton'>♥</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -134,7 +72,7 @@ function displayNewReleases(data){
         let newContent = document.createElement('section')
         newContent.innerHTML = `
         <div id='display'>
-           <button id='likeButton'>✬</button>
+           <button id='likeButton'>♥</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -173,7 +111,7 @@ function displayLocal(data){
         let localContent = document.createElement('section')
         localContent.innerHTML = `
         <div id='display'>
-           <button id='likeButton'>✬</button>
+           <button id='likeButton'>♥</button>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -232,6 +170,7 @@ function addNewAnime(data) {
                 body : JSON.stringify(newAnime)
             })
   }
+}
 
 let yourAnime = document.querySelector('#your')
 yourAnime.addEventListener('click' , displayYouranime)
@@ -240,8 +179,8 @@ function displayYouranime(){
     fetch('http://localhost:3005/news')
 .then((res) => res.json())
 .then(data => {
-    let body = document.querySelector('body')
-    body.innerHTML = ''
+    let body = document.querySelector('main')
+    body.innerHTML = ` <h1><img src='images/2.jpg'></h1>`
     data.forEach(news => {
         let content = document.createElement('section')
         content.innerHTML = `
@@ -274,8 +213,8 @@ function displayLikes(){
     fetch('http://localhost:3005/like')
 .then((res) => res.json())
 .then(data => {
-    let body = document.querySelector('body')
-    body.innerHTML = ''
+    let body = document.querySelector('main')
+    body.innerHTML = `<h1><img src='images/2.jpg'></h1>`
     data.forEach(like => {
         let content = document.createElement('section')
         content.innerHTML = `
@@ -300,4 +239,52 @@ function deleteIt(){
     })
 })
 }
+
+
+let button = document.querySelector('#button')
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    let animeName = anime.value
+    let form = document.querySelector('#searchForm')
+    form.reset()
+
+    fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
+    .then(res=>res.json())
+    .then(data=>displayResults(data))
+})
+
+function displayResults(data){ 
+    let main = document.querySelector('main')
+    main.innerHTML = ` <h1><img src='images/2.jpg'></h1>` // clear previous results
+    data.data.forEach(anime => {
+        let content = document.createElement('section')
+        content.innerHTML = `
+        <div id='display'>
+           <button id='likeButton'>♥</button>
+           <img src='${anime.images.jpg.image_url}'>
+           <h3>${anime.title}<h3>
+           </div>
+        `
+        main.appendChild(content)
+
+        let likeButton = content.querySelector('#likeButton')
+        likeButton.addEventListener('click' , () => {
+            let id = anime.mal_id
+            let title = anime.title
+            let img = anime.images.jpg.image_url
+            let likedAnime = {
+                id : id,
+                title : title,
+                img : img
+            }
+            fetch("http://localhost:3005/like" , {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify(likedAnime)
+            })
+        })
+    });
 }
+
