@@ -1,3 +1,42 @@
+let home = document.querySelector('#home')
+home.addEventListener('click' , displayHome)
+
+function displayHome(){
+    let main = document.querySelector('main')
+    main.innerHTML = `
+    <header>
+        <h1>ANIME-<span>HUB</span></h1>
+    </header>
+
+    <form id="addForm">
+        <input id="add" type="text" placeholder="ADD ANIME">
+        <button id="btn">+</button>
+    </form>
+
+     <br><br>
+
+    <form id="searchForm">
+        <input required type="text" id="anime" placeholder="ENTER ANIME NAME">
+        <button id="button">🔎</button>
+    </form>
+    <div class="div"></div>
+
+    <section id="global">
+        <h2>BEST ANIME'S GLOBALLY</h2>
+        <div class="global"></div>
+    </section>
+
+    <section id="new">
+        <h2>NEW RELEASES</h2>
+        <div class="new"></div>
+    </section>
+
+    <section id="local">
+        <h2>TRENDING ANIME'S LOCALLY</h2>
+        <div class="local"></div>
+    </section>
+    `
+
 let button = document.querySelector('#button')
 button.addEventListener('click', (e) => {
     e.preventDefault()
@@ -261,4 +300,4 @@ function deleteIt(){
     })
 })
 }
-
+}

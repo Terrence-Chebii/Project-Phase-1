@@ -1,20 +1,4 @@
 {
   "news": [],
-  "like": [
-    {
-      "id": 5032,
-      "title": "Cobra The Animation",
-      "img": "https://cdn.myanimelist.net/images/anime/13/18900.jpg"
-    },
-    {
-      "id": 25717,
-      "title": "AIUEO Anime Sekai no Douwa: Aesop Monogatari Anime Series",
-      "img": "https://cdn.myanimelist.net/images/anime/3/65297.jpg"
-    },
-    {
-      "id": 5849,
-      "title": "Zettai Karen Children: Oobanburumai! Natsuko to Hotaru no B.A.B.E.L. Tsuushin",
-      "img": "https://cdn.myanimelist.net/images/anime/2/23158.jpg"
-    }
-  ]
+  "like": []
 }
