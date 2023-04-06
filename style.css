@@ -114,6 +114,10 @@ div button{
     color: white;
 }
 
+div button:hover{
+    color: gold;
+}
+
 h2{
     text-align: left;
     color: blanchedalmond;
@@ -159,8 +163,4 @@ h2{
 #deleteIt:hover{
     background-color: red;
     color: white;
-}
-
-#likeButton:visited{
-    color: gold;
 }
