@@ -6,7 +6,7 @@ The list But They Aren't
 You Can Also Favorite Animes That You Personally Like 
 
 
-Anime-Hub
+# Anime-Hub
 Anime-Hub is a web application that lets users discover
 and explore anime content. The application fetches data 
 from the Jikan API to display a variety of anime content, 
@@ -21,7 +21,7 @@ categories globally and locally. Users can also like their
  button.
 
 
-How the project works
+# How the project works
 The project is built using HTML, CSS, and JavaScript. The
  HTML and CSS files are used for the layout and styling of
   the website. The JavaScript file is used to fetch data 
@@ -61,7 +61,7 @@ using a POST request. When the user clicks on the Liked
  Anime's button, the liked animes are fetched from the 
  server and displayed.
 
-#How to use the project
+# How to use the project
 To use the project, simply open the index.html file in 
 your browser. The website will be displayed. You can click 
 on the Home button to see the best animes globally, new 
@@ -75,14 +75,16 @@ Liked Anime's button to see the list of your liked animes.
    animes by entering the name of the anime in the input
     field of the ADD ANIME form and clicking the ➕ button.
 
-HTML
-CSS
-JavaScript
-How to Use
+# HTML
+# CSS
+# JavaScript
+
+
+# How to Use
 
 APIs Used
 Jikan API - A RESTful API that provides anime-related 
 content.
 
 
-AUTHOR: Terrence Chebii
+# AUTHOR: Terrence Chebii
