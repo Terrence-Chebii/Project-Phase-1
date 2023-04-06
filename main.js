@@ -295,3 +295,18 @@ function displayResults(data){
     });
 }
 
+let filter = document.querySelector('#filter')
+filter.addEventListener('click' , showFilters)
+
+function showFilters(){
+    let displayFilters = document.querySelector('#displayFilters')
+    let li = document.createElement('li')
+    displayFilters.innerHTML = ``
+    li.innerHTML = `
+    <h4 id='action'>Action<h4>  
+    <h4 id='romance'>Romance<h4>
+    <h4 id='comedy'>Comedy<h4>
+    <h4 id='horror'>Horror<h4>
+    `
+    displayFilters.appendChild(li)
+}

@@ -215,3 +215,17 @@ h2 {
 #likeButton:hover{
     color: gold;
 }
+
+li{
+    position: relative;
+    background-color: #a1a0a054;
+    width: 10%;
+    left: 28%;
+}
+
+h4:hover{
+    color: #ff4500;
+    transition: .4s;
+    transform: scale(1.3);
+    cursor: pointer;
+}
