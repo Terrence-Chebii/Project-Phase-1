@@ -6,7 +6,6 @@
 
 body {
     text-align: center;
-    overflow-x: hidden;
     background-color:white;
     background-size: auto;
 }
@@ -113,7 +112,7 @@ button:hover {
 }
 
 section {
-    padding: 1%;
+    padding: 10px;
     max-width: 200px;
 }
 
@@ -121,7 +120,11 @@ img {
     border-radius: 30px;
     height: 280px;
     border: 2px solid orangered;
+}
+
+section div img{
     max-width: 200px;
+    padding: 0;
 }
 
 h3 {
@@ -161,7 +164,8 @@ main h1 img {
     border: 0;
     max-width: 100%;
     position: absolute;
-    left: 40%;
+    left: 33%;
+    height: 500px;
 }
 
 h2 {
@@ -173,12 +177,14 @@ h2 {
 
 .global {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
+    max-width: 1360px;
 }
 
 .new {
     display: flex;
     overflow-x: scroll;
+    max-width: 1360px;
 }
 
 .new section img {
@@ -190,6 +196,7 @@ h2 {
 .local {
     display: flex;
     overflow-x: scroll;
+    max-width: 1360px;
 }
 
 #youranimes {
@@ -252,4 +259,11 @@ footer{
     height: 50%;
     position: relative;
     top: 7%;
+}
+
+.slide{
+    height: 615px;
+    width: 10000px;
+    border-radius: 0;
+    border: 0;
 }
