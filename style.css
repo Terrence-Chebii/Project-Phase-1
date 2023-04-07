@@ -80,7 +80,7 @@ span {
     border-radius: 30px;
     border: 2px solid orangered;
     font-size: 100%;
-    color: rgb(161, 160, 160);
+    color: #a1a0a0;
     position: relative;
     background-color: rgba(161, 160, 160, 0.329);
 }
@@ -242,9 +242,15 @@ h2 {
 
 li{
     position: relative;
-    background-color: #a1a0a054;
-    width: 10%;
+    background-color: #a1a0a0;
+    width: 20%;
     left: 28%;
+}
+
+#displayFilters{
+    position: absolute;
+    width: 30%;
+    left: 20%;
 }
 
 h4:hover{
@@ -256,7 +262,7 @@ h4:hover{
 
 footer{
     background-color:#a1a0a054;
-    height: 20%;
+    height: 10%;
     position: absolute;
     bottom: 0;
     width: 100%;
