@@ -168,6 +168,15 @@ main h1 img {
     height: 500px;
 }
 
+#navImg{
+    border: 0;
+    max-width: 100%;
+    position: absolute;
+    left: 37%;
+    height: 300px;
+    top: -120px;
+}
+
 h2 {
     text-align: left;
     color: black;
