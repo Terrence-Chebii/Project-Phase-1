@@ -1,7 +1,10 @@
+// Selecting the home button and adding a click event listener that calls displayHome function
 let home = document.querySelector('#home')
 home.addEventListener('click' , displayHome)
 
+// Async function to display the homepage
 async function displayHome(){
+        // Selecting the main element and replacing its content with the HTML below
     let main = document.querySelector('main')
     main.innerHTML = `
     <div class="div"></div>
@@ -23,13 +26,17 @@ async function displayHome(){
     </div>
     `
 
+        // Fetching anime data from the Jikan API for the best globally rated anime
+
 await fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
 .then(res=>res.json())
 .then(data=>displayGlobal(data))
 
+    // Function to display the global anime data
 function displayGlobal(data){ 
     let global = document.querySelector('.global')
     data.data.forEach(anime => {
+                    // Creating a section element and setting its innerHTML
         let globalContent = document.createElement('section')
         globalContent.innerHTML = `
         <div id='display'>
@@ -38,7 +45,11 @@ function displayGlobal(data){
            <h3>${anime.title}<h3>
            </div>
         `
+                    // Appending the created section element to the global element in the HTML
+
         global.appendChild(globalContent)
+
+                    // Adding a click event listener to the like button that sends a POST request to the backend to like an anime
 
         let likeButton = globalContent.querySelector('#likeButton')
         likeButton.addEventListener('click' , () => {
@@ -61,14 +72,17 @@ function displayGlobal(data){
     });
 }
 
-
+    // Fetching anime data from the Jikan API for the new releases
 fetch(' https://api.jikan.moe/v4/anime?q=2022&sfw')
 .then(res=>res.json())
 .then(data=>displayNewReleases(data))
 
+    // Function to display the new releases anime data
+
 async function displayNewReleases(data){ 
     let newRealeases = document.querySelector('.new')
     data.data.forEach(anime => {
+                    // Creating a section element and setting its innerHTML
         let newContent = document.createElement('section')
         newContent.innerHTML = `
         <div id='display'>
@@ -77,6 +91,8 @@ async function displayNewReleases(data){
            <h3>${anime.title}<h3>
            </div>
         `
+                    // Appending the created section element to the new releases element in the HTML
+
         newRealeases.appendChild(newContent)
 
         let likeButton = newContent.querySelector('#likeButton')
@@ -100,10 +116,10 @@ async function displayNewReleases(data){
     });
 }
 
-
-await fetch('https://api.jikan.moe/v4/anime?q=l&sfw')
+// Sends a GET request to the external Anime API with a search query
+await fetch('https://api.jikan.moe/v4/anime?q=l&sfw') 
 .then(res=>res.json())
-.then(data=>displayLocal(data))
+.then(data=>displayLocal(data)) // Calls the displayLocal function with the JSON data
 
 async function displayLocal(data){ 
     let local = document.querySelector('.local')
@@ -118,17 +134,17 @@ async function displayLocal(data){
         `
         local.appendChild(localContent)
 
-        let likeButton = localContent.querySelector('#likeButton')
-        likeButton.addEventListener('click' , () => {
-            let id = anime.mal_id
-            let title = anime.title
-            let img = anime.images.jpg.image_url
-            let likedAnime = {
+        let likeButton = localContent.querySelector('#likeButton')  // Selects the like button
+        likeButton.addEventListener('click' , () => { // Adds an event listener to the like button
+            let id = anime.mal_id // Gets the ID of the anime
+            let title = anime.title // Gets the title of the anime
+            let img = anime.images.jpg.image_url // Gets the image of the anime
+            let likedAnime = { // Creates a new object with the ID, title, and image of the anime
                 id : id,
                 title : title,
                 img : img
             }
-            fetch("http://localhost:3005/like" , {
+            fetch("http://localhost:3005/like" , { // Sends a POST request to the server with the new object
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'
@@ -253,7 +269,7 @@ button.addEventListener('click', (e) => {
     e.preventDefault()
     let animeName = anime.value
     let form = document.querySelector('#searchForm')
-    form.reset()
+    form.reset() //prevent reset behaviour
 
      fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
     .then(res=>res.json())
@@ -477,7 +493,7 @@ async function showHorror(){
 
 let i = 0; 			
 let images = [];	
-let time = 3000;	
+let time = 3000;	//time intervel
 	 
 images[0] = "images/img1.jpg";
 images[1] = "images/img2.jpg";
@@ -490,7 +506,7 @@ function changeImg(){
 	if(i < images.length - 1){
 	  i++; 
 	} else { 
-		i = 0;
+		i = 0; //reset image
 	}
 
 	setTimeout("changeImg()", time);
