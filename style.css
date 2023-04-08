@@ -6,16 +6,16 @@
 
 body {
     text-align: center;
-    background-color:white;
+    background-color:#a1a0a054;
     background-size: auto;
 }
 
 nav {
     position: relative;
     display: flex;
-    justify-content: space-betwee;
+    justify-content: space-between;
     width: 100%;
-    background-color: #a1a0a054;
+    background-color: #777676;
 }
 
 nav h3 {
@@ -45,7 +45,7 @@ span {
     width: 70%;
     padding: 3%;
     border-radius: 30px;
-    border: 2px solid orangered;
+    border: 2px solid orange;
     font-size: 100%;
     color: rgb(161, 160, 160);
     float: left;
@@ -69,7 +69,7 @@ span {
 }
 
 #btn:hover {
-    color: gold;
+    color: orange;
 }
 
 #anime {
@@ -78,7 +78,7 @@ span {
     width: 75%;
     padding: 3%;
     border-radius: 30px;
-    border: 2px solid orangered;
+    border: 2px solid orange;
     font-size: 100%;
     color: #a1a0a0;
     position: relative;
@@ -119,7 +119,7 @@ section {
 img {
     border-radius: 30px;
     height: 280px;
-    border: 2px solid orangered;
+    border: 2px solid orange;
 }
 
 section div img{
@@ -145,6 +145,7 @@ div button:hover {
 main {
     display: flex;
     flex-wrap: wrap;
+    background-color: #a1a0a054;
 }
 
 #dis{
@@ -216,7 +217,7 @@ h2 {
 #deleteIt {
     background-color: white;
     color: red;
-    font-size: 30px;
+    font-size: 20px;
     padding: 2px;
     border-radius: 10px;
     border: 3px solid orangered;
@@ -237,7 +238,7 @@ h2 {
 }
 
 #likeButton:hover{
-    color: gold;
+    color: rgba(255, 0, 0, 0.76);
 }
 
 li{

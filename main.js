@@ -35,12 +35,15 @@ await fetch('https://api.jikan.moe/v4/anime?q=best anime&sfw')
     // Function to display the global anime data
 function displayGlobal(data){ 
     let global = document.querySelector('.global')
+    displayFilters.innerHTML = ``
+    console.log(data)
     data.data.forEach(anime => {
                     // Creating a section element and setting its innerHTML
         let globalContent = document.createElement('section')
         globalContent.innerHTML = `
         <div id='display'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -87,6 +90,7 @@ async function displayNewReleases(data){
         newContent.innerHTML = `
         <div id='display'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -128,6 +132,7 @@ async function displayLocal(data){
         localContent.innerHTML = `
         <div id='display'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -277,6 +282,7 @@ button.addEventListener('click', (e) => {
 })
 
 function displayResults(data){ 
+    console.log(data)
     let main = document.querySelector('main')
     main.innerHTML = ` ` // clear previous results
     data.data.forEach(anime => {
@@ -284,6 +290,7 @@ function displayResults(data){
         content.innerHTML = `
         <div id='display'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -344,6 +351,7 @@ async function showAction(h4){
         newContent.innerHTML = `
         <div id='showaction'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -384,6 +392,7 @@ async function showRomance(){
         newContent.innerHTML = `
         <div id='showaction'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -424,6 +433,7 @@ async function showComedy(){
         newContent.innerHTML = `
         <div id='showaction'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -464,6 +474,7 @@ async function showHorror(){
         newContent.innerHTML = `
         <div id='showaction'>
            <button id='likeButton'>♥</button>
+           <h6>${anime.rating}</h6>
            <img src='${anime.images.jpg.image_url}'>
            <h3>${anime.title}<h3>
            </div>
@@ -493,7 +504,7 @@ async function showHorror(){
 
 let i = 0; 			
 let images = [];	
-let time = 3000;	//time intervel
+let time = 3000;	//time interval
 	 
 images[0] = "images/img1.jpg";
 images[1] = "images/img2.jpg";
