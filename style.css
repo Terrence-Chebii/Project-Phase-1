@@ -277,9 +277,15 @@ footer{
     top: 7%;
 }
 
+#footerImg:hover{
+    transform: scale(1.2);
+    transition: .2s;
+}
+
 .slide{
     height: 615px;
     width: 10000px;
     border-radius: 0;
     border: 0;
 }
+
