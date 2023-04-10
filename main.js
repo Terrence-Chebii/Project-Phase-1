@@ -189,6 +189,7 @@ function addNewAnime(data) {
         id : id
     }
 
+    //adding to my internal server
     fetch("http://localhost:3005/news" , {
                 method : 'POST',
                 headers : {
@@ -198,13 +199,17 @@ function addNewAnime(data) {
             })
   }
 
+  //selecting the your anime from index.html and adding an event listener which calls the displayYouranime
 let yourAnime = document.querySelector('#your')
 yourAnime.addEventListener('click' , displayYouranime)
 
+//function for displaying your anime
 async function displayYouranime(){
+    //fetch gata from the internal sever
    await fetch('http://localhost:3005/news')
 .then((res) => res.json())
 .then(data => {
+    //selecting the main and writing it inner html from the internal server
     let body = document.querySelector('main')
     body.innerHTML = ` `
     data.forEach(news => {
@@ -233,10 +238,13 @@ function deleteIt(){
 })
 }
 
+//selecting the your likes likes from the html and adding an event listener
  let yourLikes = document.querySelector('#liked')
 yourLikes.addEventListener('click' , displayLikes)
 
+// function for displaying likes
 async function displayLikes(){
+    //fetching data from the internal server
    await fetch('http://localhost:3005/like')
 .then((res) => res.json())
 .then(data => {
@@ -253,9 +261,11 @@ async function displayLikes(){
         `
         body.appendChild(content)
 
+        //giving function to the delete button which deletes data from the internal sever therefore it will not be displayed in the web page
 let deleteButton = content.querySelector('#deleteIt')
 deleteButton.addEventListener('click' , deleteIt)
 function deleteIt(){
+    //adding a pop up the makes sure you want to delete it
     confirm('Are You sure you want to unlike it?')
     fetch(`http://localhost:3005/like/${like.id}` , {
             method : 'DELETE',
@@ -268,7 +278,7 @@ function deleteIt(){
 })
 }
 
-
+//selecting the search button and adding an event listener to ii
 let button = document.querySelector('#button')
 button.addEventListener('click', (e) => {
     e.preventDefault()
@@ -276,16 +286,21 @@ button.addEventListener('click', (e) => {
     let form = document.querySelector('#searchForm')
     form.reset() //prevent reset behaviour
 
+    //fetch data from the public anime API and passing the data to the display results as an argument
      fetch(`https://api.jikan.moe/v4/anime?q=${animeName}`)
     .then(res=>res.json())
     .then(data=>displayResults(data))
 })
 
+//function for showing results of the search
 function displayResults(data){ 
     console.log(data)
     let main = document.querySelector('main')
-    main.innerHTML = ` ` // clear previous results
+    //calling the main from the html
+    main.innerHTML = ` ` // clear previous results from the main
+    //creating a for each loop which loops through the whole array and returns the rating , image & title
     data.data.forEach(anime => {
+        //creating a section inside the main and setting its innerHTML
         let content = document.createElement('section')
         content.innerHTML = `
         <div id='display'>
@@ -295,8 +310,10 @@ function displayResults(data){
            <h3>${anime.title}<h3>
            </div>
         `
+        //appemding the section to the main
         main.appendChild(content)
 
+        //just like the one up there its giving fuction to the like button and adding it to the internal server
         let likeButton = content.querySelector('#likeButton')
         likeButton.addEventListener('click' , () => {
             let id = anime.mal_id
@@ -318,9 +335,11 @@ function displayResults(data){
     });
 }
 
+//selecting the filter and adding an event listener
 let filter = document.querySelector('#filter')
 filter.addEventListener('click' , showFilters)
 
+//this fntion shows all the types of filter when you click the filter
 function showFilters(){
     let displayFilters = document.querySelector('#displayFilters')
     let li = document.createElement('li')
@@ -332,20 +351,25 @@ function showFilters(){
     <h4 id='horror'>Horror<h4>
     `
     displayFilters.appendChild(li)
+
+    //event listeners to the different filters add passing the to the respective functions
     document.querySelector('#action').addEventListener('click' , showAction)
     document.querySelector('#romance').addEventListener('click' , showRomance)
     li.querySelector('#comedy').addEventListener('click' , showComedy)
     li.querySelector('#horror').addEventListener('click' , showHorror)
 }
 
+//function for showing the action when it is clicked
 async function showAction(h4){
+    //fetching data from the public anime API
     await fetch('https://api.jikan.moe/v4/anime?q=fight&sfw')
 .then(res=>res.json())
 .then(data=>{
+    //selecting the main fromthe html
     let action = document.querySelector('main')
     let filter = document.querySelector('#displayFilters')
-    filter.innerHTML = ``
-    action.innerHTML = ``
+    filter.innerHTML = ``//clearing previous data
+    action.innerHTML = ``//clearing previous data
     data.data.forEach(anime => {
         let newContent = document.createElement('section')
         newContent.innerHTML = `
@@ -356,7 +380,9 @@ async function showAction(h4){
            <h3>${anime.title}<h3>
            </div>
         `
+        // appending the section the main
         action.appendChild(newContent)
+        //making like function active
         newContent.querySelector('#likeButton').addEventListener('click' , (e) =>{
             e.preventDefault()
             let id = anime.mal_id
@@ -379,6 +405,7 @@ async function showAction(h4){
 })
 }
 
+//same funtionality as the showAction
 async function showRomance(){
     await fetch('https://api.jikan.moe/v4/anime?q=love&sfw')
 .then(res=>res.json())
@@ -420,6 +447,7 @@ async function showRomance(){
 })
 }
 
+//same funtionality as the showAction
 async function showComedy(){
     await fetch('https://api.jikan.moe/v4/anime?q=comedy&sfw')
 .then(res=>res.json())
@@ -461,6 +489,7 @@ async function showComedy(){
 })
 }
 
+//same funtionality as the showAction
 async function showHorror(){
     await fetch('https://api.jikan.moe/v4/anime?q=horror&sfw')
 .then(res=>res.json())
@@ -511,6 +540,7 @@ images[1] = "images/img2.jpg";
 images[2] = "images/img4.jpg";
 images[3] = "images/img5.jpg";
 
+//function for changing the image
 function changeImg(){
 	document.slide.src = images[i];
 
