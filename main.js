@@ -254,8 +254,8 @@ async function displayLikes(){
         let content = document.createElement('section')
         content.innerHTML = `
         <div id='youranimes'>
-           <img src='${like.img}'>
            <h3>${like.title}<h3><br><br>
+           <img src='${like.img}'>
            <button id='deleteIt'>UNLIKE</button>
            </div>
         `

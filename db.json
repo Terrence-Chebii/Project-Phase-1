@@ -1,11 +1,5 @@
 {
-  "news": [
-    {
-      "title": "Naruto",
-      "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg",
-      "id": 20
-    }
-  ],
+  "news": [],
   "like": [
     {
       "id": 1874,
@@ -13,9 +7,9 @@
       "img": "https://cdn.myanimelist.net/images/anime/7/36569.jpg"
     },
     {
-      "id": 25717,
-      "title": "AIUEO Anime Sekai no Douwa: Aesop Monogatari Anime Series",
-      "img": "https://cdn.myanimelist.net/images/anime/3/65297.jpg"
+      "id": 586,
+      "title": "Ayakashi: Japanese Classic Horror",
+      "img": "https://cdn.myanimelist.net/images/anime/2/11746.jpg"
     }
   ]
 }
